@@ -12,7 +12,7 @@ final class BookController
     {
         $p = $r->getQueryParams();
         $rows = $this->books->all((string) ($p['q'] ?? ''), (int) ($p['limit'] ?? 0));
-        return $this->json($s, ['count' => count($rows), 'data' => $rows]);
+        return $this->json($s, $rows);
     }
     public function show(Request $r, Response $s, array $a): Response
     {
