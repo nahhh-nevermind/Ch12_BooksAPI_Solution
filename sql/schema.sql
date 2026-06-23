@@ -34,8 +34,8 @@ CREATE TABLE users (
 ) ENGINE=InnoDB;
 
 INSERT INTO users (name, email, password_hash, role) VALUES
-    ('Demo Admin', 'admin@books.test', '<Paste Hash Here>', 'admin'),
-    ('Demo Member', 'member@books.test', '$2y$10$b3HRfOZRIpH/x0X3p6abWOZicQIz9/8v9e8IciiX0Pw2w04GYiERW', 'member');
+    ('Demo Admin', 'admin@books.test', '$2y$10$b3HRfOZRIpH/x0X3p6abWOZicQIz9/8v9e8IciiX0Pw2w04GYiERW', 'admin'),
+    ('Demo Member', 'member@books.test', '<Paste Hash Here>', 'member');
 
 ALTER TABLE books ADD COLUMN created_by INT NULL AFTER genre,
     ADD CONSTRAINT fk_books_user FOREIGN KEY (created_by) REFERENCES users(id) ON DELETE SET NULL;
