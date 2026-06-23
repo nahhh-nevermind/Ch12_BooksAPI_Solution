@@ -46,8 +46,15 @@ final class AuthController
             'token_type' => 'Bearer',
             'expires_in' => $this->jwt->ttl(),
             'access_token' => $token,
+            'user'         => [
+                'id'    => $u['id'],
+                'name'  => $u['name'],
+                'email' => $u['email'],
+                'role'  => $u['role'],
+            ],
         ]);
     }
+
     public function me(Request $r, Response $s): Response
     {
         $auth = (array) $r->getAttribute('auth', []);
